@@ -1,0 +1,1 @@
+This repository contains all projects for the course "Visualisation".
