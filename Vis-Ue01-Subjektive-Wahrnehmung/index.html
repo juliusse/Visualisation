@@ -97,7 +97,7 @@
 
 
     <!-- TASK 2  (hidden on load)-->
-    <div id='task-2'  class="hero-unit" style="display: none;">
+    <div id='task-2'  class="hero-unit" >
 
       <div class="row">
         <div class="offset3 span3">
@@ -114,7 +114,8 @@
 
       <div class="row">       
         <div class="offset6   span3">  
-          <div id='slider2'> </div>
+          <div id='slider-2' class="slider"> </div>
+          <div class='centered'> <div id='answere'>1.0</div> times bigger</div>
         </div>
       </div>
 
@@ -122,12 +123,14 @@
 
       <div class="row">     
         <div class="offset3  span6">
-          <div>Task 2
+          <div >How many times is the first circle bigger than the second one?
           </div>
         </div>
-      </div>
+        </div>
 
-  </div>
+    </div>
+
+
 
     <div class="row"> 
 
@@ -151,7 +154,7 @@
       </div>
 
       <div class="span3 offset8"> 
-        <a id="showResults" href="#" class="btn btn-primary btn-medium pull-right">Show result &raquo;</a>
+        <a id="showResults" href="#result" role="button" class="btn btn-primary btn-medium pull-right" data-toggle="modal">Show result &raquo;</a>
       </div>
 
   </div>
@@ -165,6 +168,24 @@
       </footer>
 
     </div> <!-- /container -->
+
+
+
+ 
+<!-- Modal -->
+    <div id="result" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+        <h3 id="myModalLabel">Result</h3>
+      </div>
+      <div  class="modal-body">
+        <div id='result-1'></div>
+        <div id='result-2'></div>
+      </div>
+      <div class="modal-footer">
+        <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
+      </div>
+    </div>
 
     <!-- Le javascript
     ================================================== -->
