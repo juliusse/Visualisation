@@ -1,0 +1,37 @@
+@font-face {
+  font-family: 'Sosa';
+  src: url('../fonts/sosa/sosa.eot');
+  src: local('Sosa'), local('Sosa'), url('../fonts/sosa/sosa.woff') format('woff'),url('../fonts/sosa/sosa.ttf') format('truetype'), url('../fonts/sosa/sosa.svg#Sosa') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+.iconFont {
+    font-family: Sosa;
+    font-size: 20pt;
+    text-decoration: none;
+}
+
+svg.testObject {
+    position: absolute;
+    width: 270px;
+    height: 135px;
+}
+
+body {
+    position: relative;
+    padding-top: 40px;
+}
+
+.preview {
+    height: 125px;
+    width: 125px;
+}
+
+.btn.test {
+    width: 125px;
+}
+
+.choice {
+    height: 120px;
+}
