@@ -1,8 +1,8 @@
 /*
- Circle class
+ Triangle class
  
- Florian Wokurka (2013)
- modified by Julius Seltenheim (2013)
+ Julius Seltenheim (2013)
+ based on Circle.js by Florian Wokurka (2013)
  
  Feel free to use.
  

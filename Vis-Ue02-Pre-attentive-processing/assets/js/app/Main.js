@@ -1,3 +1,13 @@
+/**
+ * 
+ * Main application logic.
+ * It is not very pretty (yet), but does it's job :)
+ * 
+ * Julius Seltenheim (2013)
+ * 
+ * Feel free to use.
+ */
+
 "use strict";
 
 var directions = {
