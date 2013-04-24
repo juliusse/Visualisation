@@ -109,5 +109,5 @@ $testTypes[] = "Conjunction";
 include_once './design_footer.php';
 ?>
 <script>
-    initOverviewPage();
+    window.onload = function() {initOverviewPage();};
 </script>
