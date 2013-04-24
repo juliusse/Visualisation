@@ -244,7 +244,7 @@ function endRound() {
     var duration = Date.now() - roundStartTime;
     roundRunning = false;
     results[currentRound] = duration;
-    overlaySpan.text((duration / 1000) + " sec");
+    overlaySpan.text(duration + " ms");
     overlay.show();
 
     currentRound += 1;
@@ -252,7 +252,7 @@ function endRound() {
     if (currentRound <= levelCount) {
         setTimeout(function() {
             choiceDivs.empty();
-            showLable(labels[("round" + currentRound)], 2000, countdown());
+            showLable(labels[("round" + currentRound)], 3000, countdown());
         }, 2000);
     } else {
         //test finished
@@ -368,30 +368,32 @@ function initOverviewPage() {
                 $(this).toggleClass("text-error");
             }
 
+            //print results in table
+            for (var i = 1; i <= levelCount; i++) {
+                //set table lables
+                var levelConf = levels[i];
+                $("#" + type + "-" + i + "-distr").text(": " + levelConf.distractors);
+                $("#" + type + "-" + i + "-distrTypes").text(": " + levelConf.distractorTypes);
 
-        }
-
-        //print results in table
-        for (var i = 1; i <= levelCount; i++) {
-            //set table lables
-            var levelConf = levels[i];
-            $("#" + type + "-" + i + "-distr").text(": " + levelConf.distractors);
-            $("#" + type + "-" + i + "-distrTypes").text(": " + levelConf.distractorTypes);
-
-            if (results[i]) {
-                var time = parseInt(results[i]);
-                var td = $("#" + type + "-" + i);
-                td.text(time + " ms");
-                //set color
-                if (time <= 700) {
-                    td.toggleClass("text-success");
-                } else if (time < 1000) {
-                    td.toggleClass("text-warning");
-                } else {
-                    td.toggleClass("text-error");
+                if (results[i]) {
+                    var time = parseInt(results[i]);
+                    var td = $("#" + type + "-" + i);
+                    td.text(time + " ms");
+                    //set color
+                    if (time <= 700) {
+                        td.toggleClass("text-success");
+                    } else if (time < 1000) {
+                        td.toggleClass("text-warning");
+                    } else {
+                        td.toggleClass("text-error");
+                    }
                 }
             }
+        } else {
+            $("#"+type+"-timetrial").remove();
         }
+
+
     });
 
 
