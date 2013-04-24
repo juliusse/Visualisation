@@ -1,0 +1,21 @@
+.hero-unit{
+	padding: 20px 0px 20px 0px;
+
+}
+
+.slider{
+	height: 18px;
+}
+
+.centered{
+	text-align: center;
+}
+
+.circle{
+	height: 300px;
+
+}
+
+.hidden{
+	display: none;
+}

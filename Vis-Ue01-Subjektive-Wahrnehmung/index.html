@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>isualisation Project #1 - Circles</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="Florian Wokurka, Julius Seltenheim, Paul Stüber">
+
+    <!-- Le styles -->
+    <link href="./assets/css/bootstrap.css" rel="stylesheet">
+    <link href="./assets/css/ui-lightness/jquery-ui-1.10.2.custom.min.css" rel="stylesheet">
+    <link href="./assets/css/style.css" rel="stylesheet">
+
+    <style type="text/css">
+      body {
+        padding-top: 60px;
+        padding-bottom: 40px;
+      }
+    </style>
+    <link href="./assets/css/bootstrap-responsive.css" rel="stylesheet">
+
+    <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+      <script src="../assets/js/html5shiv.js"></script>
+    <![endif]-->
+
+    <!-- Fav and touch icons -->
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="./assets/ico/apple-touch-icon-144-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="./assets/ico/apple-touch-icon-114-precomposed.png">
+      <link rel="apple-touch-icon-precomposed" sizes="72x72" href="./assets/ico/apple-touch-icon-72-precomposed.png">
+                    <link rel="apple-touch-icon-precomposed" href="./assets/ico/apple-touch-icon-57-precomposed.png">
+                                   <link rel="shortcut icon" href="./assets/ico/favicon.png">
+  </head>
+
+  <body>
+
+    <div class="navbar navbar-inverse navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container">
+          <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="brand" href="#">Visualisation Project #1 - Circles</a>
+           <div class="nav-collapse collapse">
+            <ul class="nav">
+              <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Students <b class="caret"></b></a>
+                <ul class="dropdown-menu">
+                  <li><a href="https://github.com/notiontaxi">Florian Wokurka</a></li>
+                  <li><a href="https://github.com/juliusse">Julius Seltenheim</a></li>
+                  <li><a href="https://github.com/paulstueber">Paul Stüber</a></li>
+                </ul>
+              </li>
+            </ul>
+          </div><!--/.nav-collapse -->
+        </div>
+      </div>
+    </div>
+
+    <div class="container">
+
+      <!-- TASK 1 -->
+      <div id='task-1'  class="hero-unit">
+
+        <div class="row">
+          <div class="offset3 span3">
+            <h2 class='centered'>Circle 1</h2>
+            <div id='circle-1' class='circle'> </div>
+          </div>
+          <div class="span3 " >
+            <h2 class='centered'>Circle 2</h2>
+            <div id='circle-2' class='circle'> </div>
+         </div>
+        </div>
+
+        </br>
+
+        <div class="row">       
+          <div class="offset6   span3">  
+            <div id='slider-1' class="slider"> </div>
+          </div>
+        </div>
+
+        </br>
+
+        <div class="row">     
+          <div class="offset3  span6">
+            <div >Scale the second circle to a size, which is three times bigger than the size of the first one.
+            </div>
+          </div>
+        </div>
+
+    </div>
+
+
+    <!-- TASK 2  (hidden on load)-->
+    <div id='task-2'  class="hero-unit" >
+
+      <div class="row">
+        <div class="offset3 span3">
+          <h2 class='centered'>Circle #1</h2>
+          <div id='circle-3' class='circle'> </div>
+        </div>
+        <div class="span3 " >
+          <h2 class='centered'>Circle #2</h2>
+          <div id='circle-4' class='circle'> </div>
+       </div>
+      </div>
+
+      </br>
+
+      <div class="row">       
+        <div class="offset6   span3">  
+          <div id='slider-2' class="slider"> </div>
+          <div class='centered'> <div id='answere'>1.0</div> times bigger</div>
+        </div>
+      </div>
+
+      </br>
+
+      <div class="row">     
+        <div class="offset3  span6">
+          <div >How many times is the first circle bigger than the second one?
+          </div>
+        </div>
+        </div>
+
+    </div>
+
+
+
+    <div class="row"> 
+
+      <div class="span4 offset4">  
+        <div id="pagination" class="pagination pagination-centered">
+          <ul>
+            <li id="paginator-page-prev">
+              <a href="#">Prev</a>
+            </li>
+            <li id="paginator-page-1" class="disabled">
+              <a href="#">1</a>
+            </li>
+            <li id="paginator-page-2">
+              <a href="#">2</a>
+            </li>
+            <li id="paginator-page-next">
+              <a href="#">Next</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="span3 offset8"> 
+        <a id="showResults" href="#result" role="button" class="btn btn-primary btn-medium pull-right" data-toggle="modal">Show result &raquo;</a>
+      </div>
+
+  </div>
+
+
+      <hr>
+
+      <footer>
+        <p>Written by</p>
+        <p>Paul Stüber, Julius Seltenheim, Florian Wokurka</p>
+      </footer>
+
+    </div> <!-- /container -->
+
+
+
+ 
+<!-- Modal -->
+    <div id="result" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+        <h3 id="myModalLabel">Result</h3>
+      </div>
+      <div  class="modal-body">
+        <div id='result-1'></div>
+        <div id='result-2'></div>
+      </div>
+      <div class="modal-footer">
+        <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
+      </div>
+    </div>
+
+    <!-- Le javascript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="./assets/js/jquery-1.9.1.js"></script>
+    <script src="./assets/js/jquery-ui-1.10.2.custom.min.js"></script>
+    <script src="./assets/js/bootstrap-transition.js"></script>
+    <script src="./assets/js/bootstrap-alert.js"></script>
+    <script src="./assets/js/bootstrap-modal.js"></script>
+    <script src="./assets/js/bootstrap-dropdown.js"></script>
+    <script src="./assets/js/bootstrap-scrollspy.js"></script>
+    <script src="./assets/js/bootstrap-tab.js"></script>
+    <script src="./assets/js/bootstrap-tooltip.js"></script>
+    <script src="./assets/js/bootstrap-popover.js"></script>
+    <script src="./assets/js/bootstrap-button.js"></script>
+    <script src="./assets/js/bootstrap-collapse.js"></script>
+    <script src="./assets/js/bootstrap-carousel.js"></script>
+    <script src="./assets/js/bootstrap-typeahead.js"></script>
+
+    <script src="./assets/js/Main.js"></script>
+    <script src="./assets/js/Circle.js"></script>
+    <script src="./assets/js/Paginator.js"></script>
+
+  </body>
+</html>
