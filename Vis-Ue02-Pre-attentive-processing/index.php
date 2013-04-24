@@ -27,9 +27,9 @@ $testTypes[] = "Conjunction";
             <a href="./test.php?type=<?= $typeLower ?>-easy" class="btn test">
                 Time Trial
             </a><span id="passed-<?= $typeLower ?>-easy" class="passed iconFont"></span><br>
-            <a href="./test.php?type=<?= $typeLower ?>-hard" class="btn test">
+            <!-- <a href="./test.php?type=<?= $typeLower ?>-hard" class="btn test">
                 Hard Test
-            </a>
+            </a>-->
             <hr>
             <div>
                 <h4>Results (Time Trial)</h4>
