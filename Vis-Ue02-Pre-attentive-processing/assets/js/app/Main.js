@@ -372,8 +372,8 @@ function initOverviewPage() {
             for (var i = 1; i <= levelCount; i++) {
                 //set table lables
                 var levelConf = levels[i];
-                $("#" + type + "-" + i + "-distr").text(": " + levelConf.distractors);
-                $("#" + type + "-" + i + "-distrTypes").text(": " + levelConf.distractorTypes);
+                $("#" + type + "-" + i + "-distr").text(levelConf.distractors);
+                $("#" + type + "-" + i + "-distrTypes").text(levelConf.distractorTypes);
 
                 if (results[i]) {
                     var time = parseInt(results[i]);

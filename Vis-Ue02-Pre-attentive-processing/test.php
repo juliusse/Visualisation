@@ -22,16 +22,34 @@ include_once './design_head.php';
         </div>
         <div class="row-fluid" style="margin: 10px; height: 100px;">
             <div class="row-fluid">
-                <div class="span4 offset4">Up Arrow</div>
-            </div>
-            <div class="row-fluid">
-                <div class="span4">Left Arrow</div>
-                <div class="span4"><span id="timer" class="lead"></span>
+                <div class="span4 offset4">
+                    <span class="iconFont key">
+                        &#238;
+                    </span>
                 </div>
-                <div class="span4">Right Arrow</div>
             </div>
             <div class="row-fluid">
-                <div class="span4 offset4">Down Arrow</div>
+                <div class="span4">
+                    <span class="iconFont key">
+                        &#243;
+                    </span>
+                </div>
+                <div class="span4">
+                    <span id="timer" class="lead"></span>
+                </div>
+
+                <div class="span4">
+                    <span class="iconFont key">
+                        &#241;
+                    </span>
+                </div>
+            </div>
+            <div class="row-fluid">
+                <div class="span4 offset4">
+                    <span class="iconFont key">
+                        &#239;
+                    </span>
+                </div>
             </div>
         </div>
         <div id="down" class="well choice">

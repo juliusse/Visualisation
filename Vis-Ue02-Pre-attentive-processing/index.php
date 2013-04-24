@@ -47,10 +47,18 @@ $testTypes[] = "Conjunction";
                                             <th>
                                                 Test
                                             </th>
-                                            <th>
-                                                Config
+                                            <th title="Distractor Count">
+                                                <svg version="1.2" baseProfile="tiny" style="width:20px; height: 20px;">
+                                                <circle cx="10" cy="10" r="10" stroke="black" stroke-width="1" fill="#336699"></circle>
+                                                </svg>
                                             </th>
-                                            <th><abbr title="faff<br>wafa">Time</abbr></th>
+                                            <th title="Distractor Types">
+                                                <svg version="1.2" baseProfile="tiny" style="width:30px; height: 30px;">
+                                                <circle cx="10" cy="10" r="10" stroke="black" stroke-width="1" fill="#336699"></circle>
+                                                <rect x="10" y="10" width="20" height="20" stroke="black" stroke-width="1" fill="#b94a48"></rect>
+                                                </svg>
+                                            </th>
+                                            <th>Time</th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -61,19 +69,12 @@ $testTypes[] = "Conjunction";
                                                 <td>
                                                     Test <?= $i ?>
                                                 </td>
-                                                <td>
-                                                    <svg version="1.2" baseProfile="tiny" style="float: left; width:20px; height: 20px;">
-                                                    <circle cx="10" cy="10" r="10" stroke="black" stroke-width="1" fill="#336699"></circle>
-                                                    </svg>
-                                                    <span id="<?= $typeLower ?>-<?= $i ?>-distr" style="float: left; margin-right: 10px;">: 10</span>
-                                                    <svg version="1.2" baseProfile="tiny" style="float: left; width:30px; height: 30px;">
-                                                    <circle cx="10" cy="10" r="10" stroke="black" stroke-width="1" fill="#336699"></circle>
-                                                    <rect x="10" y="10" width="20" height="20" stroke="black" stroke-width="1" fill="#b94a48"></rect>
-                                                    </svg>
-                                                    <span id="<?= $typeLower ?>-<?= $i ?>-distrTypes" style="float: left; margin-right: 10px;">: 10</span>
+                                                <td id="<?= $typeLower ?>-<?= $i ?>-distr">
+                                                </td>
+                                                <td id="<?= $typeLower ?>-<?= $i ?>-distrTypes" style="text-align: center">
 
                                                 </td>
-                                                <td id="<?= $typeLower ?>-<?= $i ?>">
+                                                <td id="<?= $typeLower ?>-<?= $i ?>" style="text-align: right">
                                                 </td>
                                             </tr>
                                             <?php
@@ -97,11 +98,11 @@ $testTypes[] = "Conjunction";
     <h2>About</h2>
     Pre-attentive processing is done parallel and within a short time under a second.<br />
     With the given tests you can find out if the tested features are pre-attentive processed by you or not.<br />
-    
+
     <h3>Time Trial</h3>
     At the time trial test the reaction time of a user matters, too.<br />
     Because of this fact the limit for pre-attentive processing has been raised to 700ms instead of 500ms.
-    
+
 
 </div>
 
