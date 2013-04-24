@@ -15,7 +15,7 @@ window.Circle = Circle;
 
 function Circle(_diameter, _color) {
 
-    this.radius = _diameter/2;
+    this.radius = _diameter / 2;
     this.color = _color;
     this.mySvg = document.createElementNS("http://www.w3.org/2000/svg", "svg");
     this.mySvg.setAttribute("version", "1.2");
@@ -37,8 +37,9 @@ Circle.prototype.appendTo = function(_container) {
 
     this.xPos = xPos;
     this.yPos = yPos;
-
+    $(this.mySvg).empty();
     container.append(this.mySvg);
+
     this.circleElement = document.createElementNS("http://www.w3.org/2000/svg", "circle");
     this.circleElement.setAttribute("cx", this.xPos);
     this.circleElement.setAttribute("cy", this.yPos);
@@ -59,5 +60,15 @@ Circle.prototype.getRadius = function() {
     return this.radius;
 };
 
+Circle.prototype.toString = function() {
+    return "circle";
+};
 
+Circle.prototype.getSize = function() {
+    return this.radius * 2;
+};
+
+Circle.prototype.getColor = function() {
+    return this.color;
+};
 

@@ -40,9 +40,10 @@ Triangle.prototype.appendTo = function(_container) {
     var startX = xPos;
     var startY = yPos + size;
 
+    $(this.mySvg).empty();
     container.append(this.mySvg);
     this.triangleElement = document.createElementNS("http://www.w3.org/2000/svg", "path");
-    this.triangleElement.setAttribute("d", "M "+startX+" " + startY + " l " + size + " 0 l -" + half + " -" + size + " l -" + half + " " + size);
+    this.triangleElement.setAttribute("d", "M " + startX + " " + startY + " l " + size + " 0 l -" + half + " -" + size + " l -" + half + " " + size);
     this.triangleElement.setAttribute("stroke", "black");
     this.triangleElement.setAttribute("stroke-width", "1");
     this.triangleElement.setAttribute("fill", this.color);
@@ -50,5 +51,14 @@ Triangle.prototype.appendTo = function(_container) {
     this.mySvg.appendChild(this.triangleElement);
 };
 
+Triangle.prototype.toString = function() {
+    return "triangle";
+};
 
+Triangle.prototype.getSize = function() {
+    return this.size;
+};
 
+Triangle.prototype.getColor = function() {
+    return this.color;
+};

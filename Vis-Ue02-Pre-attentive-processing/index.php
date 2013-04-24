@@ -13,33 +13,32 @@ $testTypes[] = "Conjunction";
 <div class="row" style="min-height: 400px;">
     <?php
     foreach ($testTypes as $type) :
-        $typeLower = strtolower($type);
         ?>
         <div class="span4">
             <h3><?php echo $type ?></h3>
 
-            <div class="well test-<?= $typeLower ?> preview">
+            <div class="well test-<?= $type ?> preview">
             </div>
             <p>
                 <span class="iconFont">[</span> ~ 2 Minutes
             </p>
             <p>
-                <a href="./test.php?type=<?= $typeLower ?>-easy" class="btn test">
+                <a href="./test.php?type=<?= $type ?>-TimeTrial" class="btn test">
                     Time Trial
-                </a><span id="passed-<?= $typeLower ?>-easy" class="passed iconFont"></span><br>
-                <!-- <a href="./test.php?type=<?= $typeLower ?>-hard" class="btn test">
-                    Hard Test
-                </a>-->
+                </a><span id="passed-<?= $type ?>-TimeTrial" class="passed iconFont"></span><br>
+                <a href="./test.php?type=<?= $type ?>-ShortVisible" class="btn test">
+                    Short Visible
+                </a><span id="passed-<?= $type ?>-ShortVisible" class="passed iconFont"></span><br>
             </p>
             <div>
-                <div class="accordion" id="<?= $typeLower ?>-timetrial">
+                <div class="accordion" id="<?= $type ?>-TimeTrial">
                     <div class="accordion-group">
                         <div class="accordion-heading">
-                            <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#<?= $typeLower ?>-timetrial-collapse">
+                            <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#<?= $type ?>-TimeTrial-collapse">
                                 Show Results (Time Trial)
                             </a>
                         </div>
-                        <div id="<?= $typeLower ?>-timetrial-collapse" class="accordion-body collapse">
+                        <div id="<?= $type ?>-TimeTrial-collapse" class="accordion-body collapse">
                             <div class="accordion-inner">
                                 <table class="table table-striped">
                                     <thead>
@@ -69,12 +68,12 @@ $testTypes[] = "Conjunction";
                                                 <td>
                                                     Test <?= $i ?>
                                                 </td>
-                                                <td id="<?= $typeLower ?>-<?= $i ?>-distr">
+                                                <td id="<?= $type ?>-<?= $i ?>-TimeTrial-distr">
                                                 </td>
-                                                <td id="<?= $typeLower ?>-<?= $i ?>-distrTypes" style="text-align: center">
+                                                <td id="<?= $type ?>-<?= $i ?>-TimeTrial-distrTypes" style="text-align: center">
 
                                                 </td>
-                                                <td id="<?= $typeLower ?>-<?= $i ?>" style="text-align: right">
+                                                <td id="<?= $type ?>-TimeTrial-<?= $i ?>" style="text-align: right">
                                                 </td>
                                             </tr>
                                             <?php

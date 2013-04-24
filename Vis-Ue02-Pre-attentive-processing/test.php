@@ -69,13 +69,18 @@ if (isset($_REQUEST["type"])) {
     $test = $_REQUEST["type"];
     $typeParts = explode("-", $test);
     $type = $typeParts[0];
+    $mode = $typeParts[1];
     $testNice = str_replace("-", " ", $test);
     ?>
     <script type="text/javascript">
-        $("body").addClass("<?php echo $test ?>")
-        $(".page-header").find("h1").text("Test: <?php echo $testNice ?>")
-        $(".choice").addClass("test-<?php echo $type ?>")
-        initialiseTest()
+        $(".page-header").find("h1").text("Test: <?php echo $testNice ?>");
+        initialiseTest("<?= $type ?>",<?= $mode ?>Mode, $(".choice"), $("#overlay"), $("#timer"),
+                function(resultsArray) {
+                    localStorage["<?= $test ?>"] = JSON.stringify(resultsArray);
+                    setTimeout(function() {
+                        window.location.replace("./");
+                    }, 1500);
+                });
     </script>
     <?php
 }

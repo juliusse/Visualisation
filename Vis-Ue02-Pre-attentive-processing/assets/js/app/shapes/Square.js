@@ -38,6 +38,7 @@ Square.prototype.appendTo = function(_container) {
     this.xPos = xPos;
     this.yPos = yPos;
 
+    $(this.mySvg).empty();
     container.append(this.mySvg);
     this.squareElement = document.createElementNS("http://www.w3.org/2000/svg", "rect");
     this.squareElement.setAttribute("x", this.xPos);
@@ -52,3 +53,14 @@ Square.prototype.appendTo = function(_container) {
 };
 
 
+Square.prototype.toString = function() {
+    return "square";
+};
+
+Square.prototype.getSize = function() {
+    return this.sideLength;
+};
+
+Square.prototype.getColor = function() {
+    return this.color;
+};
