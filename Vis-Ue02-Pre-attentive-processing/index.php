@@ -13,7 +13,7 @@ $testTypes[] = "Conjunction";
 <div class="row">
     <p>
         Pre-attentive processing is the process of the unconscious collection of information from the environment with all senses.<br>
-        You can find more informations <a href="http://en.wikipedia.org/wiki/Pre-attentive_processing">here</a>.<br />
+        You can find more information <a target="_blank" href="http://en.wikipedia.org/wiki/Pre-attentive_processing">here</a>.<br />
     </p>
     <p>
         This test series focuses on the visual pre-attentive processing.<br />
