@@ -49,7 +49,7 @@ $testTypes[] = "Conjunction";
                     <div class="accordion-group">
                         <div class="accordion-heading">
                             <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#<?= $type ?>-TimeTrial-collapse">
-                                Show Results (Time Trial)
+                                Show Results
                             </a>
                         </div>
                         <div id="<?= $type ?>-TimeTrial-collapse" class="accordion-body collapse">
@@ -58,7 +58,7 @@ $testTypes[] = "Conjunction";
                                     <thead>
                                         <tr>
                                             <th>
-                                                Test
+                                                #
                                             </th>
                                             <th title="Distractor Count">
                                                 <svg version="1.2" baseProfile="tiny" style="width:20px; height: 20px;">
@@ -71,7 +71,9 @@ $testTypes[] = "Conjunction";
                                                 <rect x="10" y="10" width="20" height="20" stroke="black" stroke-width="1" fill="#b94a48"></rect>
                                                 </svg>
                                             </th>
-                                            <th>Time</th>
+                                            <th><abbr title="Time Trial">TT</abbr></th>
+                                            <th><abbr title="Short Visible">SV</abbr></th>
+                                            <th><abbr title="Short Visible Single">SVS</abbr></th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -80,14 +82,18 @@ $testTypes[] = "Conjunction";
                                             ?>
                                             <tr>
                                                 <td>
-                                                    Test <?= $i ?>
+                                                    <?= $i ?>
                                                 </td>
-                                                <td id="<?= $type ?>-<?= $i ?>-TimeTrial-distr">
+                                                <td id="<?= $type ?>-<?= $i ?>-distr">
                                                 </td>
-                                                <td id="<?= $type ?>-<?= $i ?>-TimeTrial-distrTypes" style="text-align: center">
+                                                <td id="<?= $type ?>-<?= $i ?>-distrTypes" style="text-align: center">
 
                                                 </td>
                                                 <td id="<?= $type ?>-TimeTrial-<?= $i ?>" style="text-align: right">
+                                                </td>
+                                                <td id="<?= $type ?>-ShortVisible-<?= $i ?>" style="text-align: right">
+                                                </td>
+                                                <td id="<?= $type ?>-ShortVisibleSingle-<?= $i ?>" style="text-align: right">
                                                 </td>
                                             </tr>
                                             <?php

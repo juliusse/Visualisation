@@ -50,14 +50,14 @@ var colorsConfig = {
 var shapesConfig = {
     labels: shapeLables,
     distractorColors: ["yellow"],
-    distractorShapes: ["circle", "triangle","star"],
+    distractorShapes: ["circle", "triangle", "star"],
     targetObject: new Square(20, DrawUtils.colors.yellow)
 };
 
 var conjunctionConfig = {
     labels: conjunctionLables,
     distractorColors: ["red", "blue", "yellow", "green", "violet"],
-    distractorShapes: ["circle", "square", "triangle","star"],
+    distractorShapes: ["circle", "square", "triangle", "star"],
     targetObject: new Square(20, DrawUtils.colors.red)
 };
 
@@ -153,25 +153,35 @@ function initOverviewPage() {
             for (var i = 1; i <= levelCount; i++) {
                 //set table lables
                 var levelConf = levels[i];
-                $("#" + type + "-" + mode + "-" + i + "-distr").text(levelConf.distractors);
-                $("#" + type + "-" + mode + "-" + i + "-distrTypes").text(levelConf.distractorTypes);
+                $("#" + type + "-" + i + "-distr").text(levelConf.distractors);
+                $("#" + type + "-" + i + "-distrTypes").text(levelConf.distractorTypes);
 
-                if (results[i]) {
-                    var time = parseInt(results[i]);
+
+                if (results[i] !== undefined) {
                     var td = $("#" + type + "-" + mode + "-" + i);
-                    td.text(time + " ms");
-                    //set color
-                    if (time <= 700) {
-                        td.toggleClass("text-success");
-                    } else if (time < 1000) {
-                        td.toggleClass("text-warning");
+                    if (typeof(results[i]) === "number") {
+                        var time = parseInt(results[i]);
+                        td.text(time + " ms");
+                        //set color
+                        if (time <= 700) {
+                            td.toggleClass("text-success");
+                        } else if (time < 1000) {
+                            td.toggleClass("text-warning");
+                        } else {
+                            td.toggleClass("text-error");
+                        }
                     } else {
-                        td.toggleClass("text-error");
+                        td.toggleClass("iconFont");
+                        if (results[i]) {
+                            td[0].innerHTML = '&#229;';
+                            td.toggleClass("text-success");
+                        } else {
+                            td[0].innerHTML = '&#227;';
+                            td.toggleClass("text-error");
+                        }
                     }
                 }
             }
-        } else {
-            $("#" + type + "-" + mode).remove();
         }
 
 
