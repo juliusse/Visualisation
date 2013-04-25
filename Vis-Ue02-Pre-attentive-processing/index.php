@@ -10,6 +10,17 @@ $testTypes[] = "Conjunction";
     <h1>How good is your pre-attentive processing?<br />
         <small>Choose a Test to find out</small></h1>
 </div>
+<div class="row">
+    <p>
+        Pre-attentive processing is the process of the unconscious collection of information from the environment with all senses.<br>
+        You can find more informations <a href="http://en.wikipedia.org/wiki/Pre-attentive_processing">here</a>.<br />
+    </p>
+    <p>
+        This test series focuses on the visual pre-attentive processing.<br />
+        With the given tests you can find out if the tested features are pre-attentive processed by you or not.<br />
+    </p>
+
+</div>
 <div class="row" style="min-height: 400px;">
     <?php
     foreach ($testTypes as $type) :
@@ -92,22 +103,12 @@ $testTypes[] = "Conjunction";
     endforeach;
     ?>
 </div>
-<hr />
-<div class="row">
-    <h2>About</h2>
-    Pre-attentive processing is done parallel and within a short time under a second.<br />
-    With the given tests you can find out if the tested features are pre-attentive processed by you or not.<br />
-
-    <h3>Time Trial</h3>
-    At the time trial test the reaction time of a user matters, too.<br />
-    Because of this fact the limit for pre-attentive processing has been raised to 700ms instead of 500ms.
-
-
-</div>
 
 <?php
 include_once './design_footer.php';
 ?>
 <script>
-    window.onload = function() {initOverviewPage();};
+    window.onload = function() {
+        initOverviewPage();
+    };
 </script>

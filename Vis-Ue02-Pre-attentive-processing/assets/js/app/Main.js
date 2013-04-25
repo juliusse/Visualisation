@@ -50,14 +50,14 @@ var colorsConfig = {
 var shapesConfig = {
     labels: shapeLables,
     distractorColors: ["yellow"],
-    distractorShapes: ["circle", "triangle"],
+    distractorShapes: ["circle", "triangle","star"],
     targetObject: new Square(20, DrawUtils.colors.yellow)
 };
 
 var conjunctionConfig = {
     labels: conjunctionLables,
     distractorColors: ["red", "blue", "yellow", "green", "violet"],
-    distractorShapes: ["circle", "square", "triangle"],
+    distractorShapes: ["circle", "square", "triangle","star"],
     targetObject: new Square(20, DrawUtils.colors.red)
 };
 

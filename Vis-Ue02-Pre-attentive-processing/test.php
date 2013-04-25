@@ -9,7 +9,7 @@ include_once './design_head.php';
 <div class="row-fluid">
 
     <div class="span4">
-        <div id="left" class="well choice" style="margin-top: 125px;">
+        <div id="left" class="well choice" style="margin-top: 145px;">
 
         </div>  
     </div>
@@ -17,10 +17,10 @@ include_once './design_head.php';
         <div id="up" class="well choice">
 
         </div> 
-        <div id="overlay" style="position: absolute; width: 300px; height: 80px; padding-top: 13px; background-color:rgba(214, 214, 214, 1); text-align: center;">
+        <div id="overlay" style="position: absolute; width: 300px; height: 85px; padding-top: 13px; background-color:rgba(214, 214, 214, 1); text-align: center;">
             <span class="lead"></span>
         </div>
-        <div class="row-fluid" style="margin: 10px; height: 100px;">
+        <div class="row-fluid" style="margin-left: 30px; margin-top: 30px; height: 100px;">
             <div class="row-fluid">
                 <div class="span4 offset4">
                     <span class="iconFont key">
@@ -56,7 +56,7 @@ include_once './design_head.php';
 
         </div> 
     </div>
-    <div class="span4" style="margin-top: 125px;">
+    <div class="span4" style="margin-top: 145px;">
         <div id="right" class="well choice">
 
         </div> 

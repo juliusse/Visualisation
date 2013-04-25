@@ -26,7 +26,8 @@ DrawUtils.colors = {
 DrawUtils.shapes = {
     circle: Circle,
     square: Square,
-    triangle: Triangle
+    triangle: Triangle,
+    star: Star
 };
 
 DrawUtils.drawDistractors = function(_colorKeys, _shapeKeys, targetObject, count, variance, areas) {

@@ -18,6 +18,7 @@
 
 <script src="./assets/js/app/shapes/Circle.js"></script>
 <script src="./assets/js/app/shapes/Triangle.js"></script>
+<script src="./assets/js/app/shapes/Star.js"></script>
 <script src="./assets/js/app/shapes/Square.js"></script>
 <script src="./assets/js/app/shapes/DrawUtils.js"></script>
 <script src="./assets/js/app/modes/ModeBase.js"></script>
