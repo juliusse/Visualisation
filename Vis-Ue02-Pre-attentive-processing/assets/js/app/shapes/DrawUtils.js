@@ -12,8 +12,9 @@ window.DrawUtils = DrawUtils;
 
 
 function DrawUtils() {
-    
-};
+
+}
+;
 
 DrawUtils.colors = {
     red: "#b94a48",
@@ -30,7 +31,12 @@ DrawUtils.shapes = {
     star: Star
 };
 
-DrawUtils.drawDistractors = function(_colorKeys, _shapeKeys, targetObject, count, variance, areas) {
+DrawUtils.drawDistractors = function(_colorKeys, _shapeKeys, targetObject, count, _variance, areas) {
+//fixme: hack for conjunction
+    var isConjunction = (_colorKeys.length > 1 && _shapeKeys.length > 1);
+    var variance = isConjunction ? _variance+1 : variance;
+
+
     //generate color keys
     var colorKeys = _colorKeys.slice(0);
     while (variance < colorKeys.length) {
@@ -53,7 +59,7 @@ DrawUtils.drawDistractors = function(_colorKeys, _shapeKeys, targetObject, count
 
             shapeKey = shapeKeys[Math.floor((Math.random() * shapeKeys.length))];
             color = colors[colorKeys[Math.floor((Math.random() * colorKeys.length))]];
-            while (targetObject !== null && targetObject.getColor() === color && targetObject.toString() === "shapeKey") {
+            while (targetObject !== null && targetObject.getColor() === color && targetObject.toString() === shapeKey) {
                 color = colors[colorKeys[Math.floor((Math.random() * colorKeys.length))]];
             }
 
