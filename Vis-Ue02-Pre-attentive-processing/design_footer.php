@@ -24,6 +24,7 @@
 <script src="./assets/js/app/modes/ModeBase.js"></script>
 <script src="./assets/js/app/modes/TimeTrialMode.js"></script>
 <script src="./assets/js/app/modes/ShortVisibleMode.js"></script>
+<script src="./assets/js/app/modes/ShortVisibleSingleMode.js"></script>
 <script src="./assets/js/app/Main.js"></script>
 
 <script type="text/javascript">

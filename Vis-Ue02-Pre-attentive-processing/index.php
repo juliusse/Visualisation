@@ -40,6 +40,9 @@ $testTypes[] = "Conjunction";
                 <a href="./test.php?type=<?= $type ?>-ShortVisible" class="btn test">
                     Short Visible
                 </a><span id="passed-<?= $type ?>-ShortVisible" class="passed iconFont"></span><br>
+                <a href="./test.php?type=<?= $type ?>-ShortVisibleSingle" class="btn test">
+                    Short Visible Single
+                </a><span id="passed-<?= $type ?>-ShortVisibleSingle" class="passed iconFont"></span><br>
             </p>
             <div>
                 <div class="accordion" id="<?= $type ?>-TimeTrial">
