@@ -34,7 +34,7 @@ DrawUtils.shapes = {
 DrawUtils.drawDistractors = function(_colorKeys, _shapeKeys, targetObject, count, _variance, areas) {
 //fixme: hack for conjunction
     var isConjunction = (_colorKeys.length > 1 && _shapeKeys.length > 1);
-    var variance = isConjunction ? _variance+1 : variance;
+    var variance = isConjunction ? _variance+1 : _variance;
 
 
     //generate color keys
