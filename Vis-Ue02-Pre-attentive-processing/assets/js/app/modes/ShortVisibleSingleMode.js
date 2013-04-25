@@ -30,25 +30,25 @@ ShortVisibleSingleMode.prototype.startRound = function() {
     var mode = this;
     setTimeout(function() {
         mode.choiceDivs.empty();
-        DrawUtils.drawDistractors(mode.distractorColorKeys, mode.distractorShapeKeys, mode.targetObject, roundConfig.distractors, roundConfig.distractoreTypes, $("#up"));
+        DrawUtils.drawDistractors(mode.distractorColorKeys, mode.distractorShapeKeys, mode.targetObject, roundConfig.distractors, roundConfig.distractorTypes, $("#up"));
         if (ModeBase.directions.up === mode.targetDirection) {
             mode.setTarget($("#up"));
         }
         setTimeout(function() {
             mode.choiceDivs.empty();
-            DrawUtils.drawDistractors(mode.distractorColorKeys, mode.distractorShapeKeys, mode.targetObject, roundConfig.distractors, roundConfig.distractoreTypes, $("#right"));
+            DrawUtils.drawDistractors(mode.distractorColorKeys, mode.distractorShapeKeys, mode.targetObject, roundConfig.distractors, roundConfig.distractorTypes, $("#right"));
             if (ModeBase.directions.right === mode.targetDirection) {
                 mode.setTarget($("#right"));
             }
             setTimeout(function() {
                 mode.choiceDivs.empty();
-                DrawUtils.drawDistractors(mode.distractorColorKeys, mode.distractorShapeKeys, mode.targetObject, roundConfig.distractors, roundConfig.distractoreTypes, $("#down"));
+                DrawUtils.drawDistractors(mode.distractorColorKeys, mode.distractorShapeKeys, mode.targetObject, roundConfig.distractors, roundConfig.distractorTypes, $("#down"));
                 if (ModeBase.directions.down === mode.targetDirection) {
                     mode.setTarget($("#down"));
                 }
                 setTimeout(function() {
                     mode.choiceDivs.empty();
-                    DrawUtils.drawDistractors(mode.distractorColorKeys, mode.distractorShapeKeys, mode.targetObject, roundConfig.distractors, roundConfig.distractoreTypes, $("#left"));
+                    DrawUtils.drawDistractors(mode.distractorColorKeys, mode.distractorShapeKeys, mode.targetObject, roundConfig.distractors, roundConfig.distractorTypes, $("#left"));
                     if (ModeBase.directions.left === mode.targetDirection) {
                         mode.setTarget($("#left"));
                     }
