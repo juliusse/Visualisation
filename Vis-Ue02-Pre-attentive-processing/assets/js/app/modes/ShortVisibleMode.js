@@ -53,7 +53,7 @@ ShortVisibleMode.prototype.endRound = function(success) {
     } else if (this.currentRound <= this.levelCount) {
         var mode = this;
         setTimeout(function() {
-            mode.showLable(mode.labels[("round" + mode.currentRound)], 3000, mode.countdown(mode));
+            mode.showLable(mode.labels[("round" + mode.currentRound)], 4000, mode.countdown(mode));
         }, 2000);
     } else {
         var mode = this;

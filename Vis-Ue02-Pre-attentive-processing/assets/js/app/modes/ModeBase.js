@@ -76,7 +76,7 @@ ModeBase.prototype.start = function(_onFinishCallback) {
     var mode = this;
     this.currentRound = 1;
     this.showLable(this.instructionsText, 5000, function() {
-        mode.showLable(mode.labels.round1, 2000, function() {
+        mode.showLable(mode.labels.round1, 3000, function() {
             mode.countdown(mode);
         });
     });
