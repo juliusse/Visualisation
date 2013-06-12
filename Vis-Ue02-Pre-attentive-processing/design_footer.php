@@ -1,7 +1,7 @@
 <hr />
 <footer>
     <p>Written by</p>
-    <p>Julius Seltenheim, Florian Wokurka</p>
+    <p>Julius Seltenheim</p>
 </footer>
 
 
