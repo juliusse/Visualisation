@@ -1,11 +1,15 @@
 import java.awt.BorderLayout;
 import java.awt.Dimension;
+import java.awt.Insets;
 import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.ComponentEvent;
 import java.awt.event.ComponentListener;
+import java.awt.event.MouseEvent;
+import java.awt.geom.Rectangle2D;
 import java.io.File;
+import java.text.NumberFormat;
 
 import javax.swing.BorderFactory;
 import javax.swing.Box;
@@ -24,11 +28,16 @@ import prefuse.action.ActionList;
 import prefuse.action.RepaintAction;
 import prefuse.action.assignment.DataColorAction;
 import prefuse.action.assignment.DataShapeAction;
+import prefuse.action.layout.AxisLabelLayout;
 import prefuse.action.layout.AxisLayout;
+import prefuse.controls.Control;
+import prefuse.controls.ControlAdapter;
 import prefuse.controls.ToolTipControl;
 import prefuse.data.Table;
 import prefuse.data.io.DataIOException;
-import prefuse.render.DefaultRendererFactory;
+import prefuse.render.AxisRenderer;
+import prefuse.render.Renderer;
+import prefuse.render.RendererFactory;
 import prefuse.render.ShapeRenderer;
 import prefuse.util.ColorLib;
 import prefuse.visual.VisualItem;
@@ -43,8 +52,13 @@ public class App extends Display {
     private final String[] columns;
     private static JFrame frame;
 
+    private Rectangle2D m_dataB = new Rectangle2D.Double();
+    private Rectangle2D m_xlabB = new Rectangle2D.Double();
+    private Rectangle2D m_ylabB = new Rectangle2D.Double();
+
     /**
      * taken from prefuse demo and improved / adjusted
+     * 
      * @throws DataIOException
      */
     public App() throws DataIOException {
@@ -66,7 +80,19 @@ public class App extends Display {
 
         m_vis.addTable(group, table);
 
-        m_vis.setRendererFactory(new DefaultRendererFactory(m_shapeR));
+        m_vis.setRendererFactory(new RendererFactory() {
+            Renderer yAxisRenderer = new AxisRenderer(Constants.RIGHT, Constants.TOP);
+            Renderer xAxisRenderer = new AxisRenderer(Constants.CENTER, Constants.FAR_BOTTOM);
+
+            public Renderer getRenderer(VisualItem item) {
+                if (item.isInGroup("ylabels"))
+                    return yAxisRenderer;
+                if (item.isInGroup("xlabels"))
+                    return xAxisRenderer;
+                return m_shapeR;
+
+            }
+        });
 
         // --------------------------------------------------------------------
         // STEP 2: create actions to process the visual data
@@ -78,9 +104,21 @@ public class App extends Display {
         AxisLayout y_axis = new AxisLayout(group, columns[1], Constants.Y_AXIS, VisiblePredicate.TRUE);
         m_vis.putAction("y", y_axis);
 
-        // ColorAction color = new ColorAction(group,
-        // VisualItem.STROKECOLOR, ColorLib.rgb(100,100,255));
-        // m_vis.putAction("colorStroke", color);
+        x_axis.setLayoutBounds(m_dataB);
+        y_axis.setLayoutBounds(m_dataB);
+
+        // set up the axis labels
+        NumberFormat nf = NumberFormat.getIntegerInstance();
+        nf.setMaximumFractionDigits(0);
+
+        AxisLabelLayout xlabels = new AxisLabelLayout("xlabels", x_axis, m_xlabB);
+        xlabels.setNumberFormat(nf);
+        xlabels.setScale(Constants.LINEAR_SCALE);
+        m_vis.putAction("xlabels", xlabels);
+
+        AxisLabelLayout ylabels = new AxisLabelLayout("ylabels", y_axis, m_ylabB);
+        ylabels.setNumberFormat(nf);
+        m_vis.putAction("ylabels", ylabels);
 
         DataColorAction fill = new DataColorAction(group, columns[3], Constants.NOMINAL, VisualItem.STROKECOLOR, ColorLib.getCoolPalette());
         m_vis.putAction("color", fill);
@@ -91,6 +129,8 @@ public class App extends Display {
         ActionList draw = new ActionList();
         draw.add(x_axis);
         draw.add(y_axis);
+        draw.add(xlabels);
+        draw.add(ylabels);
         draw.add(shape);
         draw.add(fill);
         // draw.add(color);
@@ -105,13 +145,32 @@ public class App extends Display {
         setHighQuality(true);
 
         ToolTipControl ttc = new ToolTipControl(columns);
+        Control hoverc = new ControlAdapter() {
+            public void itemEntered(VisualItem item, MouseEvent evt) {
+                if (item.isInGroup(group)) {
+                    item.setFillColor(item.getStrokeColor());
+                    item.setStrokeColor(ColorLib.rgb(0, 0, 0));
+                    item.getVisualization().repaint();
+                }
+            }
+
+            public void itemExited(VisualItem item, MouseEvent evt) {
+                if (item.isInGroup(group)) {
+
+                    item.setFillColor(item.getEndFillColor());
+                    item.setStrokeColor(item.getEndStrokeColor());
+                    item.getVisualization().repaint();
+                }
+            }
+        };
         addControlListener(ttc);
+        addControlListener(hoverc);
 
         frame.add(generateEncodingToolbar(columns[0], columns[1], columns[2], columns[3]), BorderLayout.NORTH);
 
         // --------------------------------------------------------------------
         // STEP 4: launching the visualization
-
+        setLayoutBoundsForDisplay();
         m_vis.run("draw");
 
         addComponentListener(new ComponentListener() {
@@ -123,6 +182,7 @@ public class App extends Display {
 
             @Override
             public void componentResized(ComponentEvent arg0) {
+                setLayoutBoundsForDisplay();
                 m_vis.run("draw");
             }
 
@@ -136,6 +196,25 @@ public class App extends Display {
 
             }
         });
+    }
+
+    // taken from CongressDemo.displayLayout
+    // this puts the axes on the right
+    public void setLayoutBoundsForDisplay() {
+        Insets i = getInsets();
+        int w = getWidth();
+        int h = getHeight();
+        int insetWidth = i.left + i.right;
+        int insetHeight = i.top + i.bottom;
+        int yAxisWidth = 85;
+        int xAxisHeight = 25;
+
+        m_dataB.setRect(i.left, i.top, w - insetWidth - yAxisWidth, h - insetHeight - xAxisHeight);
+        m_xlabB.setRect(i.left, h - xAxisHeight - i.bottom - 5, w - insetWidth - yAxisWidth, xAxisHeight);
+        m_ylabB.setRect(i.left, i.top, w - insetWidth, h - insetHeight - xAxisHeight);
+
+        m_vis.run("update");
+        m_vis.run("xlabels");
     }
 
     private static File selectFile() {
@@ -186,6 +265,13 @@ public class App extends Display {
                 Visualization vis = getVisualization();
                 AxisLayout xaxis = (AxisLayout) vis.getAction("x");
                 xaxis.setDataField((String) xcb.getSelectedItem());
+
+                ActionList list = (ActionList) vis.getAction("draw");
+                list.remove(vis.removeAction("xlabels"));
+                AxisLabelLayout xLab = new AxisLabelLayout("xlabels", xaxis, m_xlabB, spacing);
+                vis.putAction("xlabels", xLab);
+                list.add(xLab);
+
                 vis.run("draw");
             }
         });
@@ -200,6 +286,13 @@ public class App extends Display {
                 Visualization vis = getVisualization();
                 AxisLayout yaxis = (AxisLayout) vis.getAction("y");
                 yaxis.setDataField((String) ycb.getSelectedItem());
+                
+                ActionList list = (ActionList) vis.getAction("draw");
+                list.remove(vis.removeAction("ylabels"));
+                AxisLabelLayout yLab = new AxisLabelLayout("ylabels", yaxis, m_ylabB, spacing);
+                vis.putAction("ylabels", yLab);
+                list.add(yLab);
+                
                 vis.run("draw");
             }
         });
