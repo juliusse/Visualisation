@@ -1,8 +1,6 @@
 # Visualisation Projects
 
-This repository contains all projects of the course **Visualisation**, which is a part of the study program "International Media and Computung (Master)" at the HTW Berlin.<br>
+This repository contains some of the projects for the course **Visualisation**, which is a part of the study program "International Media and Computung (Master)" at the HTW Berlin.
 
-
-## Contributors
-* <a href="https://github.com/juliusse">Julius Seltenheim</a>
-* <a href="https://github.com/notiontaxi">Florian Wokurka</a>
+## Demo of pre-attentive processing test
+http://infovis.julius-seltenheim.com/Vis-Ue02-Pre-attentive-processing/
